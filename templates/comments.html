@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comments</title>
+</head>
+<body>
+    <h1>Comments</h1>
+    <ul>
+        {% for comment, replies in comments.items() %}
+            <li>{{ comment }}</li>
+            <ul>
+                {% for reply in replies %}
+                    <li>{{ reply }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </ul>
+</body>
+</html>
