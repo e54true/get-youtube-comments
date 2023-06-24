@@ -1,15 +1,21 @@
+from dotenv import load_dotenv
+import os
 from flask import Flask, render_template, request
 #from flask_lt import run_with_lt
 from googleapiclient.discovery import build
 import re
+
+# 載入 .env 檔案中的環境變數
+load_dotenv()
+
+# 從環境變數中獲取 API 金鑰
+api_key = os.getenv("API_KEY")
 
 app = Flask(__name__)
 #run_with_lt(app)
 
 app.debug = True
 
-# 設置您的 API 金鑰
-api_key = "AIzaSyAYWLesu734_hT9VZMZw4hbXKNZzrowq3I"
 
 # 建立 YouTube Data API 客戶端
 youtube = build("youtube", "v3", developerKey=api_key)
